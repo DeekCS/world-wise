@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage.jsx";
 import Pricing from "./pages/Pricing.jsx";
 import Product from "./pages/Product.jsx";
@@ -9,6 +9,7 @@ import CityList from "./components/City/CityList.jsx";
 import { useEffect, useState } from "react";
 import CountriesList from "./components/CountriesList/CountriesList.jsx";
 import City from "./components/City/City.jsx";
+import Form from "./components/Form/Form.jsx";
 
 const BASE_URL = "http://localhost:8000/";
 function App() {
@@ -21,7 +22,6 @@ function App() {
       try {
         const response = await fetch(`${BASE_URL}cities/`);
         const data = await response.json();
-        console.log(data);
         setCities(data);
       } catch (e) {
         console.log(e);
@@ -35,13 +35,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/"} element={<Homepage />} />
+        <Route index path={"/"} element={<Homepage />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/product"} element={<Product />} />
         <Route path={"/pricing"} element={<Pricing />} />
         <Route path={"/app"} element={<AppLayout />}>
+          <Route index element={<Navigate to={"cities"} replace />} />
           <Route
-            index
             path={"cities"}
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
@@ -51,14 +51,7 @@ function App() {
             path={"countries"}
             element={<CountriesList cities={cities} isLoading={isLoading} />}
           />
-          <Route
-            path={"form"}
-            element={
-              <p>
-                Form <p />
-              </p>
-            }
-          />
+          <Route path={"form"} element={<Form />} />
         </Route>
         <Route path={"*"} element={<PageNotFound />} />
       </Routes>
