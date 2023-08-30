@@ -27,7 +27,7 @@ export default function CityItem({ city }) {
     });
     if (alert.isConfirmed) {
       deleteCity(id);
-      await Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      await Swal.fire("Deleted!", "City has been deleted.", "success");
     }
   };
 

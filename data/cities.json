@@ -35,6 +35,18 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Stafford",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "date": "2023-07-31T21:00:00.000Z",
+      "notes": "sadasd",
+      "emoji": "🇬🇧",
+      "position": {
+        "lat": "52.855864177853995",
+        "lng": "-2.3071289062500004"
+      },
+      "id": 98443198
     }
   ]
 }
