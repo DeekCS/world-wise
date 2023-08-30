@@ -15,7 +15,7 @@ export default function CityItem({ city }) {
   return (
     <li>
       <Link
-        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+        to={`${id}?lat=${position?.lat}&lng=${position?.lng}`}
         className={`
           ${currentCity?.id === id ? styles["cityItem--active"] : ""}
           ${styles.cityItem}
